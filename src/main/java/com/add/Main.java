@@ -7,8 +7,9 @@ public class Main {
 
     public static void main(String... args) {
         // Check if a file path is provided as a command-line argument
-        if (args.length > 0) {
+        if (args.length > 1) {
             String midiFilePath = args[0];
+            float tempo = Float.parseFloat(args[1]);
 
             // Optional: Wait for a few seconds before starting (for setup)
             try {
@@ -19,9 +20,9 @@ public class Main {
             }
 
             // Read and process the specified MIDI file
-            midiReader.readMidiFile(midiFilePath);
+            midiReader.readMidiFile(midiFilePath, tempo);
         } else {
-            System.out.println("Please provide a MIDI file path as an argument.");
+            System.out.println("Please provide a MIDI file path and tempo as command-line arguments");
         }
     }
 }

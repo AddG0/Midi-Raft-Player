@@ -33,14 +33,13 @@ public class MidiReader {
         }
     }
 
-    public void readMidiFile(String filePath) {
+    public void readMidiFile(String filePath, float tempo) {
         try {
             Sequencer sequencer = MidiSystem.getSequencer();
             sequencer.open();
             Sequence sequence = MidiSystem.getSequence(new File(filePath));
 
             int resolution = sequence.getResolution();
-            float tempo = 85; // Default tempo in BPM (if not specified in the file)
             float microsecondsPerBeat = 60000000 / tempo;
             float millisecondsPerTick = microsecondsPerBeat / (resolution * 1000);
 
