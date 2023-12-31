@@ -24,5 +24,6 @@ public class Main {
         } else {
             System.out.println("Please provide a MIDI file path and tempo as command-line arguments");
         }
+        System.exit(0);
     }
 }
